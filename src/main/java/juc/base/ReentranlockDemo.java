@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 使用lockInterruptibly 锁可以被中断并抛出InterruptedException
  * 可以公平和非公平切换 sync只支持公平
  * 都是可重入锁
- * reen 使用CAS来实现
+ * reentranLock 使用CAS来实现
  * sync 锁升级 无锁 - 偏向锁 - 轻量级锁(内旋锁CAS) - 重量级锁 (进入等待队列)
  */
 public class ReentranlockDemo {
@@ -83,7 +83,6 @@ public class ReentranlockDemo {
         }).start();*/
 
         Thread t1 = new Thread(() -> {
-
             r.m3();
             System.out.println("m3 结束执行");
         });

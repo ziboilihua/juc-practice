@@ -17,7 +17,7 @@ public class AtomicIntegerDemo {
      */
     private AtomicLong atomicLong = new AtomicLong(0L);
 
-    // 高并发场景更快(分段锁)
+    // 高并发场景更快(分段锁) 如果 100 个线程并发add 可能分成 10个(CAS)段 getValue时 将多个段的值相加得到total
     private LongAdder longAdder = new LongAdder();
 
     void add(){
@@ -33,7 +33,9 @@ public class AtomicIntegerDemo {
     }
 
     public static void main(String[] args) {
-        AtomicIntegerDemo a = new AtomicIntegerDemo();
+        double a = 30.0;
+        System.out.println(a * Math.pow(1.04, 20));
+        /*AtomicIntegerDemo a = new AtomicIntegerDemo();
         int threadCount = 100;
         Thread[] threads = new Thread[threadCount];
         for (int i = 0; i < threadCount; i++) {
@@ -52,7 +54,7 @@ public class AtomicIntegerDemo {
                 e.printStackTrace();
             }
         }
-        a.print();
+        a.print();*/
 
     }
 

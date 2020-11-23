@@ -5,8 +5,9 @@ import java.util.concurrent.TimeUnit;
 public class VolatileDemo {
     /**
      * volatile
-     * 1.保证该变量其他线程可见
-     * 2.禁止指令重排序
+     * 1.可见性 缓存一致性协议
+     * 2.禁止指令重排序 JMM (java memory model) 8个指令完成数据读写,
+     * 通过load 和 store 互相组合成4个内存屏障禁止指令重排序
      */
 
     static volatile boolean hasNew = false;
